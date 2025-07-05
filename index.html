@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Player</title>
+    <style>
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }
+        #player { width: 100%; height: 100%; }
+    </style>
+</head>
+<body>
+    <!-- Bu yerga YouTube pleyeri joylashadi -->
+    <div id="player"></div>
+
+    <script>
+        // 2. Bu funksiya YouTube IFrame API kodi yuklangandan so'ng avtomatik chaqiriladi.
+        function onYouTubeIframeAPIReady() {
+            // Playlistlar ro'yxati
+            var playlists = [
+                'PL6AUY3Gdc-I7EXBZFXjcfY261DWL9kCVA',
+                'PLJRBTP0aDyuNSxXhi9iBmizo6xkH7HTHa'
+            ];
+            // Tasodifiy playlist tanlash
+            var randomPlaylistId = playlists[Math.floor(Math.random() * playlists.length)];
+
+            new YT.Player('player', {
+                height: '100%',
+                width: '100%',
+                playerVars: {
+                    'listType': 'playlist',
+                    'list': randomPlaylistId,
+                    'autoplay': 1, // Avtomatik ijro etish
+                    'loop': 1, // Takrorlash
+                    'controls': 1 // Boshqaruv elementlarini ko'rsatish
+                },
+                events: {
+                    'onReady': function(event) {
+                        event.target.setShuffle(true); // Aralashtirish rejimini yoqish
+                        event.target.playVideo(); // Ijroni boshlash
+                    }
+                }
+            });
+        }
+    </script>
+    <!-- 1. YouTube API skriptini yuklash -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+</body>
+</html>
