@@ -12,6 +12,10 @@
     <div id="player"></div>
 
     <script>
+        // --- BU YERDA O'ZINGIZNING GITHUB PAGES LINKINGIZNI KIRITING ---
+        // Masalan: 'https://arpc.github.io' (oxirida / bo'lmasin)
+        const MY_APP_ORIGIN = 'https://ariosarzu.github.io/youtube-player'; 
+
         function onYouTubeIframeAPIReady() {
             var playlists = [
                 'PL6AUY3Gdc-I7EXBZFXjcfY261DWL9kCVA',
@@ -25,15 +29,18 @@
                 playerVars: {
                     'listType': 'playlist',
                     'list': randomPlaylistId,
-                    'autoplay': 1,  // Avtomatik ijro etish
-                    'mute': 1,      // <<<--- YECHIM: OVOZSIZ BOSHLASH
-                    'loop': 1,      // Playlist tugagach, boshidan boshlash
-                    'controls': 1   // Boshqaruv elementlarini ko'rsatish
+                    'autoplay': 1,
+                    'mute': 1,
+                    'loop': 1,
+                    'controls': 1,
+                    // --- ENG MUHIM QO'SHIMCHA ---
+                    'origin': MY_APP_ORIGIN, // YouTube'ga bizning saytimiz xavfsiz ekanligini aytadi
+                    'widget_referrer': MY_APP_ORIGIN // Ba'zi holatlar uchun qo'shimcha himoya
                 },
                 events: {
                     'onReady': function(event) {
-                        event.target.setShuffle(true); // Aralashtirish rejimini yoqish
-                        event.target.playVideo();      // Ijroni boshlash
+                        event.target.setShuffle(true);
+                        event.target.playVideo();
                     }
                 }
             });
