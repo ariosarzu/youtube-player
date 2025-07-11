@@ -29,15 +29,7 @@
 
         // YouTube pleyerining to'liq manzilini (URL) yaratish
         const playerUrl = new URL('https://aistudio.google.com/app/prompts?state=%7B%22ids%22:%5B%221CTha51tMdAILTtEKuYzZR7OI90TvvvGl%22%5D,%22action%22:%22open%22,%22userId%22:%22114434723857514074135%22,%22resourceKeys%22:%7B%7D%7D&usp=sharing, https://drive.google.com/file/d/1D43UY709hS4ob2FGOZZkpjmRulWe7lEF/view?usp=sharing');
-        playerUrl.searchParams.set('listType', 'playlist');
-        playerUrl.searchParams.set('list', randomPlaylistId);
-        playerUrl.searchParams.set('autoplay', '1');      // Avtomatik ijro
-        playerUrl.searchParams.set('mute', '1');          // Ovozsiz
-        playerUrl.searchParams.set('loop', '1');          // Takrorlash
-        playerUrl.searchParams.set('playsinline', '1');   // <<<--- MUHIM QO'SHIMCHA: Sahifa ichida ijro etish
-        playerUrl.searchParams.set('shuffle', '1');       // Aralashtirish (bu parametr ba'zida ishlamaydi, lekin har ehtimolga qarshi)
-        
-        // Bizning Web App manzilimiz (origin)
+ 
         // Bu yerga o'zingizning GitHub Pages manzilingizni to'g'ri kiriting
         // Masalan: 'https://arpc.github.io'
         const origin = 'https://your-username.github.io';
